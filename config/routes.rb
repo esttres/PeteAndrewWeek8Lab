@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  resources :carts, only: :show, :edit, :update
+  resources :carts, only: [:show, :edit, :update]
   resources :products
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Payola::Engine => '/payola', as: :payola
