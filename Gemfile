@@ -48,6 +48,10 @@ gem 'cancancan'
 
 gem 'paper_trail', '~> 4.0.0'
 
+gem 'permalink'
+
+gem 'kaminari'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
