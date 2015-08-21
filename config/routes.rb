@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+
   resources :carts, only: :show, :edit, :update
+  resources :products
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Payola::Engine => '/payola', as: :payola
   devise_for :users
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'products#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
