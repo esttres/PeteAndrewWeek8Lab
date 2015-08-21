@@ -52,6 +52,8 @@ gem 'permalink'
 
 gem 'kaminari'
 
+gem 'bootstrap-sass'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
