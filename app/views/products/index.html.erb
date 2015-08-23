@@ -11,12 +11,13 @@
       <div class="row">
         <% slice.each do |item|%>
           <div class="col-xs-4">
-            <ul>
+            <ul class="list-unstyled">
               <li>Product: <%= item.title %></li>
               <li>Price: $<%= item.price %></li>
               <li>Description: <%= item.description %></li>
               <li>Seller: <%= item.seller_id %></li>
               <li><%= link_to 'Display Item', item, :class => 'btn btn-primary btn-xs' %></li>
+              <li><%= link_to 'Buy Me', "#", :class => 'btn btn-warning btn-xs' %></li>
             </ul>
             <br>
           </div>
