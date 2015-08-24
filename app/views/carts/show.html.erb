@@ -6,6 +6,8 @@
     <% end %>
   </ul>
 
-  <p> Total: <%= @cart.purchase_total %> </p>
+  <p> Total: <%= @cart.total_quantity %> </p>
+
+  <p> <%= number_to_currency(@cart.price.to_f/100.0) %></p>
 
 <%= button_to 'Store', products_path, method: :get %>

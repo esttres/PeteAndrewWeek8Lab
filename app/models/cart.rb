@@ -10,6 +10,11 @@ class Cart < ActiveRecord::Base
   def set_permalink
     self.permalink = SecureRandom.urlsafe_base64
   end
+  def total_quantity
+
+    line_items.sum(:quantity)
+
+  end
 
 
   def purchase_total
