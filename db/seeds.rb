@@ -9,8 +9,6 @@
 50.times do
   product = Product.create(name: Faker::Commerce.product_name,
                   price: Faker::Commerce.price*100,
-                  permalink:  Faker::Internet.slug(
-                              Faker::Lorem.words(4), '-'),
                   description: Faker::Lorem.sentence(3))
   end
 
