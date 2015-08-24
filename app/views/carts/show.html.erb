@@ -11,3 +11,4 @@
   <p> <%= number_to_currency(@cart.price.to_f/100.0) %></p>
 
 <%= button_to 'Store', products_path, method: :get %>
+<%= render 'payola/transactions/checkout', sellable: @cart %>
