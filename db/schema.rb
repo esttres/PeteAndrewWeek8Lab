@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822201347) do
+ActiveRecord::Schema.define(version: 20150824005931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "line_items", force: :cascade do |t|
     t.integer  "product_id"
+    t.integer  "cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -121,12 +127,13 @@ ActiveRecord::Schema.define(version: 20150822201347) do
   add_index "payola_subscriptions", ["guid"], name: "index_payola_subscriptions_on_guid", using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.string   "title"
+    t.string   "name"
     t.integer  "price"
     t.text     "description"
     t.integer  "seller_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "permalink"
   end
 
   create_table "refile_attachments", force: :cascade do |t|

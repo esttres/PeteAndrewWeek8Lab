@@ -1,3 +1,15 @@
 class Product < ActiveRecord::Base
-  has_many :sellers, dependent: :destroy
+  has_many :line_items
+  before_destroy :not_located_in_cart
+  permalink :name
+
+  def not_located_in_cart
+    if line_items.count.zero?
+      return true
+    else
+      errors[:base] << "line items present"
+      return false
+    end
+  end
+
 end
