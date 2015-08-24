@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
   has_many :line_items
+  has_many :carts, through: :line_items
+  
   before_destroy :not_located_in_cart
   permalink :name
 

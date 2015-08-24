@@ -2,10 +2,12 @@
 <h2> Shopping Cart </h2>
   <ul>
     <li> <% @cart.line_items.each do |item| %> </li>
-    <li> <%= item.product.name %> <%= item.product.price %> </li>
+    <li> <%= item.product.name %> <%= item.product.price %> <%=item.quantity%> </li>
     <% end %>
   </ul>
 
-  <p> Total: <%= @cart.purchase_total %> </p>
+  <p> Total: <%= @cart.total_quantity %> </p>
+
+  <p> <%= number_to_currency(@cart.price.to_f/100.0) %></p>
 
 <%= button_to 'Store', products_path, method: :get %>
