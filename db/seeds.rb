@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 50.times do
-  product = Product.create(title: Faker::Commerce.product_name,
+  product = Product.create(name: Faker::Commerce.product_name,
                   price: Faker::Commerce.price*100,
                   description: Faker::Lorem.sentence(3))
   end
