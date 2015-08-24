@@ -29,16 +29,16 @@ class LineItemsController < ApplicationController
     product = Product.find(params[:product_id])
     @line_item = @cart.line_items.build(:product => product)
 
-    respond_to do |format|
-      if @line_item.save
-        format.html { redirect_to(@line_item.cart, notice: 'Item was successfully added to cart.') }
-        format.json { render :show, status: :created, location: @line_item }
-      else
-        format.html { render :new }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
-      end
+    if @cart.products.include?(product)
+     line_item = @cart.line_items.find_by_product_id(product.id)
+     line_item.quantity = line_item.quantity + 1
+     line_item.save!
+    else
+     @cart.products << product
     end
+    redirect_to :back, :notice => "Your item was added to your cart."
   end
+
 
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
