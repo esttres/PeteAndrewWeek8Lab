@@ -3,6 +3,7 @@ class LineItem < ActiveRecord::Base
   belongs_to :cart
 
   after_save :update_cart_total
+  
 
   def total_price
 
