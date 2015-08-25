@@ -1,5 +1,4 @@
 class Cart < ActiveRecord::Base
-
   include Payola::Sellable
 
   has_many :line_items, :dependent => :destroy
@@ -20,4 +19,10 @@ class Cart < ActiveRecord::Base
   def purchase_total
     self.line_items.inject(0){|sum, num| sum + num.product.price}
   end
+
+  def clear
+    line_items.destroy_all
+    update(:price => 0)
+  end
+
 end
